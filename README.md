@@ -39,10 +39,14 @@ php artisan serve
 
 You're ready to go! Visit http://127.0.0.1:8000 or the url generated from above in your browser
 
-```sh
+
 The Api created for the Test can be found here
+
 All products: http://127.0.0.1:8000/products
+
 Paginate: http://127.0.0.1:8000/products?page=1&per_page=5
+
 Filter by Category: http://127.0.0.1:8000/products?category=Boots
+
 Filter by price: http://127.0.0.1:8000/products?priceLessThan=70000
-```
+
