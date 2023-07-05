@@ -33,27 +33,7 @@ class Products
         return $this;
     }
 
-    private function getDiscount(object $product): int
-    {
-        $discount = 0;
 
-        if ($product->sku == "000003") {
-            $discount = 15;
-        }
-
-        if ($product->category == "boots") {
-            $discount = 30;
-        }
-
-        return $discount;
-    }
- 
-    private function getFinalPrice(int $originalPrice, int $discount): int
-    {
-        return $discount == 0 ?
-            $originalPrice :
-            $originalPrice - ($originalPrice * $discount / 100);
-    }
 
     public function applyDiscount(): self
     {
@@ -100,5 +80,27 @@ class Products
             $page,
             $perPage > 5 ? 5 : $perPage
         );
+    }
+
+    private function getDiscount(object $product): int
+    {
+        $discount = 0;
+
+        if ($product->sku == "000003") {
+            $discount = 15;
+        }
+
+        if ($product->category == "boots") {
+            $discount = 30;
+        }
+
+        return $discount;
+    }
+
+    private function getFinalPrice(int $originalPrice, int $discount): int
+    {
+        return $discount == 0 ?
+            $originalPrice :
+            $originalPrice - ($originalPrice * $discount / 100);
     }
 }

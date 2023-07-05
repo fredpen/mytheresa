@@ -39,12 +39,22 @@ class ProductTest extends TestCase
         }
     }
 
-    public function test_products_can_be_filtred_with_query_parameter(): void
+    public function test_products_can_be_filtred_with_query_parameter_category(): void
     {
         $response = $this->get('/products?category=boots');
 
         foreach ($response['data'] as $product) {
             $this->assertSame($product['category'], "boots");
+        }
+    }
+
+    public function test_products_can_be_filtred_with_query_parameter_price(): void
+    {
+        $cutOffPrice = 70000;
+        $response = $this->get("/products?priceLessThan={$cutOffPrice}");
+
+        foreach ($response['data'] as $product) {
+            $this->assertLessThanOrEqual($cutOffPrice, $product['price']['original']);
         }
     }
 
