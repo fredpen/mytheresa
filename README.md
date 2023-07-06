@@ -30,6 +30,11 @@ Create enviroment file from the sample
 cp .env.example .env
 ```
 
+Generate the application key
+```sh
+php artisan key:generate
+```
+
 Run the dev server (the output will give the address):
 
 ```sh
