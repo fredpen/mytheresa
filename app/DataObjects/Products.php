@@ -15,16 +15,23 @@ class Products
     }
 
 
+    /**
+     * Setter
+     */
     public function init(): self
     {
         return $this;
     }
 
-
+    /**
+     * filter By Category
+     *
+     * @return self
+     */
     public function filterByCategory(string $queyParam): self
     {
         //convert all input to lower case to ensure
-        // query is efficient with all cases
+        // query is efficient against all cases
         $queryParam = strtolower($queyParam);
         $this->products = $this->products
             ->filter(fn ($product) => $product->category == $queryParam)
@@ -35,6 +42,11 @@ class Products
 
 
 
+    /**
+     * Apply discount on products
+     *
+     * @return self
+     */
     public function applyDiscount(): self
     {
         $this->products = $this->products->map(function ($product) {
@@ -58,6 +70,11 @@ class Products
     }
 
 
+    /**
+     * filter By Price
+     *
+     * @return self
+     */
     public function filterByPriceLessThan(int $price): self
     {
         $this->products = $this->products
@@ -72,6 +89,9 @@ class Products
      * Paginate products
      * Ensure max page count is 5
      *
+     * @param int $page
+     * @param int $perPage
+     *
      * @return Collection
      */
     public function paginate(int $page, int $perPage): Collection
@@ -82,6 +102,9 @@ class Products
         );
     }
 
+    /**
+     * Calculate the right discount of a product
+     */
     private function getDiscount(object $product): int
     {
         $discount = 0;
@@ -97,6 +120,9 @@ class Products
         return $discount;
     }
 
+    /**
+     * Get final price based off base price and discount
+     */
     private function getFinalPrice(int $originalPrice, int $discount): int
     {
         return $discount == 0 ?

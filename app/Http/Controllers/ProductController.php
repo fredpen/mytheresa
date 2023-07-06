@@ -9,6 +9,13 @@ use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
+    /**
+     * Get list of products
+     *
+     * @param Request $request
+     *
+     * @return JsonResponse
+     */
     public function getProducts(Request $request): JsonResponse
     {
         $products =  Product::getProducts();

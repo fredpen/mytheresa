@@ -35,17 +35,17 @@ Generate the application key
 php artisan key:generate
 ```
 
-Run the dev server (the output will give the address):
-
-```sh
-php artisan serve
-```
-
-
 Run test suite:
 
 ```sh
 ./vendor/bin/pest
+```
+
+
+Run the dev server (the output will give the address):
+
+```sh
+php artisan serve
 ```
 
 
