@@ -25,10 +25,9 @@ Install project dependencies:
 composer install
 ```
 
-Run test suite:
-
+Create enviroment file from the sample
 ```sh
-./vendor/bin/pest
+cp .env.example .env
 ```
 
 Run the dev server (the output will give the address):
@@ -36,6 +35,14 @@ Run the dev server (the output will give the address):
 ```sh
 php artisan serve
 ```
+
+
+Run test suite:
+
+```sh
+./vendor/bin/pest
+```
+
 
 You're ready to go! Visit http://127.0.0.1:8000 or the url generated from above in your browser
 
